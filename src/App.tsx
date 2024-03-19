@@ -8,13 +8,13 @@ import {
 } from './store/content/selectors';
 
 export default function App() {
-  /*const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
   const words = useSelector(getWordsSelector);
   const error = useSelector(getErrorSelector);
 
-  useEffect(() => {
-    dispatch(fetchWordRequest());
+  /*useEffect(() => {
+    dispatch(fetchWordRequest('hiragana'));
   }, []);
 
   return (

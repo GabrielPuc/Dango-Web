@@ -3,17 +3,18 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import { fetchWordFailure, fetchWordSuccess } from './actions';
 import { FETCH_WORDS_REQUEST } from './actionTypes';
-import { Word } from './types';
+import { Group, Word } from './types';
 
-const getWords = () =>
-  axios.get<Word[]>(`${import.meta.env.VITE_API_URL}/japanese/`);
+const getWords = (group: string) =>
+  axios.get<Group>(`${import.meta.env.VITE_API_URL}/japanese/${group}`);
 
-function* fetchWordSaga() {
+function* fetchWordSaga(params) {
   try {
-    const response = yield call(getWords);
+    console.log(params);
+    const response = yield call(getWords, params.group);
     yield put(
       fetchWordSuccess({
-        words: response.data,
+        words: response.data.content,
       })
     );
   } catch (e) {

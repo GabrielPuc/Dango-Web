@@ -12,6 +12,12 @@ export interface Word {
   group: string;
 }
 
+export interface Group {
+  name: string;
+  content: Word[];
+  version: number;
+}
+
 export interface WordState {
   pending: boolean;
   words: Word[];
@@ -28,6 +34,7 @@ export interface FetchWordFailurePayload {
 
 export interface FetchWordsRequest {
   type: typeof FETCH_WORDS_REQUEST;
+  group;
 }
 
 export type FetchWordsSuccess = {

@@ -11,8 +11,9 @@ import {
   FetchWordFailurePayload,
 } from './types';
 
-export const fetchWordRequest = (): FetchWordsRequest => ({
+export const fetchWordRequest = (group: string): FetchWordsRequest => ({
   type: FETCH_WORDS_REQUEST,
+  group: group,
 });
 
 export const fetchWordSuccess = (
