@@ -4,7 +4,9 @@ import { AppState } from './rootReducer';
 
 const getPending = (state: AppState) => state.content.pending;
 
-const getWords = (state: AppState) => state.content.words;
+//const getWords = (state: AppState) => state.content.words;
+
+const getWords = (state: AppState) => state.content.groups;
 
 const getError = (state: AppState) => state.content.error;
 
@@ -53,3 +55,19 @@ const createSelectorFor = (content: string) => {
 };
 
 export const getSelectorFor = (value: string) => createSelectorFor(value);
+
+const createGroupSelectorFor = (content: string) => {
+  return createSelector(getWords, (groups) => {
+    const section = groups.filter((obj) => {
+      return obj.name === content.toLocaleLowerCase();
+    });
+    if (section.length > 0) {
+      return section[0]['content'];
+    } else {
+      return [];
+    }
+  });
+};
+
+export const getGroupSelectorFor = (value: string) =>
+  createGroupSelectorFor(value);

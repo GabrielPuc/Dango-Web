@@ -21,9 +21,13 @@ import {
 } from './types/requestTypes';
 
 //ACTIONS FOR WORDS
-export const fetchWordRequest = (group: string): FetchWordsRequest => ({
+//export const fetchWordRequest = (group: string): FetchWordsRequest => ({
+//  type: FETCH_WORDS_REQUEST,
+//  group: group,
+//});
+
+export const fetchWordRequest = (): FetchWordsRequest => ({
   type: FETCH_WORDS_REQUEST,
-  group: group,
 });
 
 export const fetchWordSuccess = (

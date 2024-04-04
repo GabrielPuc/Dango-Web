@@ -11,7 +11,6 @@ const getMenuOptions = () =>
 function* fetchMenuOptionsSaga() {
   try {
     const response = yield call(getMenuOptions);
-    console.log(response);
     yield put(
       fetchConfigsSuccess({
         menu: response.data.menu,

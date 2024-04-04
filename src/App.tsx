@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchConfigRequest } from './store/actions';
+import { fetchConfigRequest, fetchWordRequest } from './store/actions';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './components/pages/Home';
@@ -11,6 +11,7 @@ import Tabbar from './components/base/Tabbar';
 import useNavigation from './hooks/useNavigations';
 import navigationData from './data/navigations';
 import '../index.css';
+import Reference from './components/pages/Reference';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -18,8 +19,8 @@ export default function App() {
 
   useEffect(() => {
     dispatch(fetchConfigRequest());
+    dispatch(fetchWordRequest());
   }, []);
-
   return (
     <div className="bg-slate h-screen">
       <Navbar
@@ -40,6 +41,7 @@ export default function App() {
               path="reference"
               element={<ContentMenu content={currentRoute} />}
             />
+            <Route path="reference/:content" element={<Reference />} />
             <Route
               path="practice"
               element={<ContentMenu content={currentRoute} />}

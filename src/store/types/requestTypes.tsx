@@ -7,20 +7,28 @@ import {
   FETCH_MENU_FAILURE,
 } from './actionTypes';
 
-import { Word, Menu } from './modelTypes';
+import { Word, Menu, Group } from './modelTypes';
 
 //RELATED TO WORD REQUESTS
+//export interface FetchWordSuccessPayload {
+//  words: Word[];
+//}
+
 export interface FetchWordSuccessPayload {
-  words: Word[];
+  groups: Group[];
 }
 
 export interface FetchWordFailurePayload {
   error: string;
 }
 
+//export interface FetchWordsRequest {
+//  type: typeof FETCH_WORDS_REQUEST;
+//  group;
+//}
+
 export interface FetchWordsRequest {
   type: typeof FETCH_WORDS_REQUEST;
-  group;
 }
 
 export type FetchWordsSuccess = {

@@ -5,16 +5,18 @@ import { fetchWordFailure, fetchWordSuccess } from '../actions';
 import { FETCH_WORDS_REQUEST } from '../types/actionTypes';
 import { Group } from '../types/modelTypes';
 
-const getWords = (group: string) =>
+const getWordsOf = (group: string) =>
   axios.get<Group>(`${import.meta.env.VITE_API_URL}/japanese/${group}`);
+
+const getWords = () =>
+  axios.get<Group>(`${import.meta.env.VITE_API_URL}/japanese/all`);
 
 function* fetchWordSaga(params) {
   try {
-    console.log(params);
-    const response = yield call(getWords, params.group);
+    const response = yield call(getWords);
     yield put(
       fetchWordSuccess({
-        words: response.data.content,
+        groups: response.data,
       })
     );
   } catch (e) {

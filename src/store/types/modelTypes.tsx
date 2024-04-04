@@ -32,7 +32,7 @@ export interface Config {
 
 export interface WordState {
   pending: boolean;
-  words: Word[];
+  groups: Group[];
   error: string | null;
 }
 

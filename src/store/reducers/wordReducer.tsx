@@ -9,7 +9,7 @@ import { WordState } from '../types/modelTypes';
 
 const initialState: WordState = {
   pending: false,
-  words: [],
+  groups: [],
   error: null,
 };
 
@@ -24,14 +24,14 @@ export default (state = initialState, action: WordActions) => {
       return {
         ...state,
         pending: false,
-        words: action.payload.words,
+        groups: action.payload.groups,
         error: null,
       };
     case FETCH_WORDS_FAILURE:
       return {
         ...state,
         pending: false,
-        words: [],
+        groups: [],
         error: action.payload.error,
       };
     default:
