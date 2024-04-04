@@ -12,6 +12,8 @@ import useNavigation from './hooks/useNavigations';
 import navigationData from './data/navigations';
 import '../index.css';
 import Reference from './components/pages/Reference';
+import NotFound from './components/pages/NotFound';
+import PageInConstruction from './components/pages/PageInConstruction';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -35,6 +37,7 @@ export default function App() {
       />
       <div className="App">
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/">
             <Route path="home" element={<Home />} />
             <Route
@@ -46,6 +49,7 @@ export default function App() {
               path="practice"
               element={<ContentMenu content={currentRoute} />}
             />
+            <Route path="practice/:content" element={<PageInConstruction />} />
             <Route index element={<Navigate to="home" replace />} />
           </Route>
         </Routes>
