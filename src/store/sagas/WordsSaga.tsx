@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import { fetchWordFailure, fetchWordSuccess } from './actions';
-import { FETCH_WORDS_REQUEST } from './actionTypes';
-import { Group, Word } from './types';
+import { fetchWordFailure, fetchWordSuccess } from '../actions';
+import { FETCH_WORDS_REQUEST } from '../types/actionTypes';
+import { Group } from '../types/modelTypes';
 
 const getWords = (group: string) =>
   axios.get<Group>(`${import.meta.env.VITE_API_URL}/japanese/${group}`);

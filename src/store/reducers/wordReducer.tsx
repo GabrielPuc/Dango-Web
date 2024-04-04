@@ -2,9 +2,10 @@ import {
   FETCH_WORDS_REQUEST,
   FETCH_WORDS_SUCCESS,
   FETCH_WORDS_FAILURE,
-} from './actionTypes';
+} from '../types/actionTypes';
 
-import { WordActions, WordState } from './types';
+import { WordActions } from '../types/requestTypes';
+import { WordState } from '../types/modelTypes';
 
 const initialState: WordState = {
   pending: false,
