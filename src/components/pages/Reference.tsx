@@ -49,13 +49,7 @@ function Reference() {
                 content={
                   <div className="h-max grid sm:w-screen sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 max-w-screen-lg p-4 mb-10">
                     {option.content.map((item, index) => (
-                      <ItemReference
-                        content={item}
-                        key={index}
-                        click={() => {
-                          console.log(option);
-                        }}
-                      />
+                      <ItemReference content={item} key={index} />
                     ))}
                   </div>
                 }

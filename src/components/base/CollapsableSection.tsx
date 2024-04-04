@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { SlArrowDown, SlArrowUp } from 'react-icons/sl';
 import { AiFillCaretRight, AiFillCaretDown } from 'react-icons/ai';
 
 export const CollapsableSection = ({ title, content, expanded = false }) => {
