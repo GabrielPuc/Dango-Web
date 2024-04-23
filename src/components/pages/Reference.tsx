@@ -8,12 +8,16 @@ import { useParams } from 'react-router-dom';
 import ItemReference from '../blocks/ItemReference';
 import { CollapsableSection } from '../base/CollapsableSection';
 import { Group, Word } from '../../store/types/modelTypes';
+import { useNavigate } from 'react-router-dom';
+import { BiArrowFromBottom } from 'react-icons/bi';
+import { BiArrowBack } from 'react-icons/bi';
 
 function Reference() {
   const params = useParams();
   const pending = useSelector(getPendingSelector);
   const menu = useSelector(getGroupSelectorFor(params.content));
   const error = useSelector(getErrorSelector);
+  const navigate = useNavigate();
   let groups = [];
 
   if (menu.length > 0) {
@@ -57,6 +61,26 @@ function Reference() {
             ))}
           </div>
         )}
+      </div>
+
+      <div className="fixed bottom-1/4">
+        <button
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            })
+          }
+          className="fixed z-90 right-8 bg-primary w-16 h-16 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl translate-y-20"
+        >
+          <BiArrowFromBottom />
+        </button>
+        <button
+          onClick={() => navigate(-1)}
+          className="fixed z-90 right-8 bg-primary w-16 h-16 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl "
+        >
+          <BiArrowBack />
+        </button>
       </div>
     </div>
   );
