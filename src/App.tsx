@@ -19,6 +19,7 @@ import Reference from './components/pages/Reference';
 import NotFound from './components/pages/NotFound';
 import PageInConstruction from './components/pages/PageInConstruction';
 import VerbList from './components/pages/VerbList';
+import Playground from './components/pages/Playground';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ export default function App() {
               element={<ContentMenu content={currentRoute} />}
             />
             <Route path="practice/:content" element={<PageInConstruction />} />
+            <Route path="playground" element={<Playground />} />
             <Route index element={<Navigate to="home" replace />} />
           </Route>
         </Routes>
