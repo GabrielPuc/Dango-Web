@@ -2,6 +2,9 @@ import {
   FETCH_WORDS_REQUEST,
   FETCH_WORDS_SUCCESS,
   FETCH_WORDS_FAILURE,
+  FETCH_VERBS_REQUEST,
+  FETCH_VERBS_SUCCESS,
+  FETCH_VERBS_FAILURE,
   FETCH_MENU_REQUEST,
   FETCH_MENU_SUCCESS,
   FETCH_MENU_FAILURE,
@@ -10,9 +13,6 @@ import {
 import { Word, Menu, Group } from './modelTypes';
 
 //RELATED TO WORD REQUESTS
-//export interface FetchWordSuccessPayload {
-//  words: Word[];
-//}
 
 export interface FetchWordSuccessPayload {
   groups: Group[];
@@ -21,11 +21,6 @@ export interface FetchWordSuccessPayload {
 export interface FetchWordFailurePayload {
   error: string;
 }
-
-//export interface FetchWordsRequest {
-//  type: typeof FETCH_WORDS_REQUEST;
-//  group;
-//}
 
 export interface FetchWordsRequest {
   type: typeof FETCH_WORDS_REQUEST;
@@ -73,3 +68,32 @@ export type MenuActions =
   | FetchConfigsRequest
   | FetchConfigSuccess
   | FetchConfigsFailure;
+
+//RELATED TO VERBS REQUESTS
+
+export interface FetchVerbsSuccessPayload {
+  groups: Group[];
+}
+
+export interface FetchVerbsFailurePayload {
+  error: string;
+}
+
+export interface FetchVerbsRequest {
+  type: typeof FETCH_VERBS_REQUEST;
+}
+
+export type FetchVerbsSuccess = {
+  type: typeof FETCH_VERBS_SUCCESS;
+  payload: FetchWordSuccessPayload;
+};
+
+export type FetchVerbsFailure = {
+  type: typeof FETCH_VERBS_FAILURE;
+  payload: FetchWordFailurePayload;
+};
+
+export type VerbsActions =
+  | FetchVerbsRequest
+  | FetchVerbsSuccess
+  | FetchVerbsFailure;

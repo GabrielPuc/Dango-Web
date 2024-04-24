@@ -3,6 +3,9 @@ import {
   FETCH_WORDS_FAILURE,
   FETCH_WORDS_SUCCESS,
   FETCH_MENU_REQUEST,
+  FETCH_VERBS_REQUEST,
+  FETCH_VERBS_FAILURE,
+  FETCH_VERBS_SUCCESS,
   FETCH_MENU_FAILURE,
   FETCH_MENU_SUCCESS,
 } from './types/actionTypes';
@@ -13,6 +16,11 @@ import {
   FetchWordSuccessPayload,
   FetchWordsFailure,
   FetchWordFailurePayload,
+  FetchVerbsRequest,
+  FetchVerbsSuccess,
+  FetchVerbsSuccessPayload,
+  FetchVerbsFailure,
+  FetchVerbsFailurePayload,
   FetchConfigsRequest,
   FetchConfigSuccessPayload,
   FetchConfigFailurePayload,
@@ -60,5 +68,25 @@ export const fetchConfigFailure = (
   payload: FetchConfigFailurePayload
 ): FetchConfigsFailure => ({
   type: FETCH_MENU_FAILURE,
+  payload,
+});
+
+//ACTIONS FOR VERBS
+
+export const fetchVerbsRequest = (): FetchVerbsRequest => ({
+  type: FETCH_VERBS_REQUEST,
+});
+
+export const fetchVerbsSuccess = (
+  payload: FetchVerbsSuccessPayload
+): FetchVerbsSuccess => ({
+  type: FETCH_VERBS_SUCCESS,
+  payload,
+});
+
+export const fetchVerbsFailure = (
+  payload: FetchVerbsFailurePayload
+): FetchVerbsFailure => ({
+  type: FETCH_VERBS_FAILURE,
   payload,
 });
