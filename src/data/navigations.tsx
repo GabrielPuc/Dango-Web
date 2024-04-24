@@ -1,1 +1,1 @@
-export default ['home', 'reference', 'practice'];
+export default ['home', 'reference', 'practice', 'verbs'];

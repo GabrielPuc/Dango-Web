@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchConfigRequest, fetchWordRequest } from './store/actions';
+import {
+  fetchConfigRequest,
+  fetchWordRequest,
+  fetchVerbsRequest,
+} from './store/actions';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './components/pages/Home';
@@ -14,6 +18,7 @@ import '../index.css';
 import Reference from './components/pages/Reference';
 import NotFound from './components/pages/NotFound';
 import PageInConstruction from './components/pages/PageInConstruction';
+import VerbList from './components/pages/VerbList';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -22,6 +27,7 @@ export default function App() {
   useEffect(() => {
     dispatch(fetchConfigRequest());
     dispatch(fetchWordRequest());
+    dispatch(fetchVerbsRequest());
   }, []);
   return (
     <div className="bg-slate h-screen">
@@ -45,6 +51,7 @@ export default function App() {
               element={<ContentMenu content={currentRoute} />}
             />
             <Route path="reference/:content" element={<Reference />} />
+            <Route path="verbs" element={<VerbList />} />
             <Route
               path="practice"
               element={<ContentMenu content={currentRoute} />}

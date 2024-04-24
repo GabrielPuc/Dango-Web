@@ -12,7 +12,6 @@ function Home() {
       </p>
       <p>{textDate}</p>
       <TextToSpeech text={textDate} />
-      <FlippableCard front={'Front'} back={'Back'}></FlippableCard>
     </div>
   );
 }
