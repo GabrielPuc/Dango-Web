@@ -1,5 +1,6 @@
 import { BiHomeSmile } from 'react-icons/bi';
 import TextToSpeech from '../base/TextToSpeech';
+import FlippableCard from '../base/FlippableCard';
 
 function Home() {
   const now = new Date();
@@ -11,6 +12,7 @@ function Home() {
       </p>
       <p>{textDate}</p>
       <TextToSpeech text={textDate} />
+      <FlippableCard front={'Front'} back={'Back'}></FlippableCard>
     </div>
   );
 }
