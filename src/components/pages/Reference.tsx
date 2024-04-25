@@ -7,7 +7,8 @@ import {
 import { useParams } from 'react-router-dom';
 import ItemReference from '../blocks/ItemReference';
 import { CollapsableSection } from '../base/CollapsableSection';
-import { Group, Word } from '../../store/types/modelTypes';
+import { Word } from '../../store/types/modelTypes';
+import NavigationFAB from '../blocks/NavigationFAB';
 
 function Reference() {
   const params = useParams();
@@ -58,6 +59,8 @@ function Reference() {
           </div>
         )}
       </div>
+
+      <NavigationFAB />
     </div>
   );
 }
