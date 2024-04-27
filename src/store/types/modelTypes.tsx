@@ -41,3 +41,9 @@ export interface MenuState {
   menuOptions: Menu[];
   error: string | null;
 }
+
+export interface VerbGroupsState {
+  pending: boolean;
+  groups: Group[];
+  error: string | null;
+}

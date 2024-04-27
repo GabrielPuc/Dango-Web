@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
 import { AiFillHome, AiFillBook, AiFillEdit } from 'react-icons/ai';
+import { FaPersonRunning } from 'react-icons/fa6';
 
 const Tabbar = ({ navigationData, currentRoute, setCurrentRoute }) => {
   const getTabIcon = useCallback((item) => {
@@ -11,6 +12,8 @@ const Tabbar = ({ navigationData, currentRoute, setCurrentRoute }) => {
         return <AiFillBook />;
       case 'practice':
         return <AiFillEdit />;
+      case 'verbs':
+        return <FaPersonRunning />;
     }
   }, []);
 
