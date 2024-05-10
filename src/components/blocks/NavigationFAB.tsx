@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function NavigationFAB() {
   const navigate = useNavigate();
   return (
-    <div className="fixed bottom-1/4">
+    <div className="fixed bottom-1/4 hidden md:flex">
       <button
         onClick={() =>
           window.scrollTo({
