@@ -20,6 +20,8 @@ const getVerbs = (state: AppState) => state.verbGroups.groups;
 
 const getVerbsError = (state: AppState) => state.verbGroups.error;
 
+const getStrokeIndex = (state: AppState) => state.strokeIndex;
+
 //WORDS
 export const getWordsSelector = createSelector(getWords, (words) => words);
 
@@ -90,3 +92,14 @@ const createGroupSelectorFor = (content: string) => {
 
 export const getGroupSelectorFor = (value: string) =>
   createGroupSelectorFor(value);
+
+//STROKES INDEX
+
+const createStrokesIndexSelector = () => {
+  return createSelector(
+    getStrokeIndex,
+    (strokesIndex) => strokesIndex.strokeIndex
+  );
+};
+
+export const getStrokesIndexSelector = () => createStrokesIndexSelector();

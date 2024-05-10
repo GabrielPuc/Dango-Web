@@ -8,6 +8,8 @@ import {
   FETCH_VERBS_SUCCESS,
   FETCH_MENU_FAILURE,
   FETCH_MENU_SUCCESS,
+  FETCH_STROKE_INDEX_REQUEST,
+  FETCH_STROKE_INDEX_SUCESS,
 } from './types/actionTypes';
 
 import {
@@ -26,6 +28,9 @@ import {
   FetchConfigFailurePayload,
   FetchConfigsFailure,
   FetchConfigSuccess,
+  FetchStrokeIndexSuccess,
+  FetchStrokeIndexSuccessPayload,
+  FetchStrokeIndexRequest,
 } from './types/requestTypes';
 
 //ACTIONS FOR WORDS
@@ -89,4 +94,16 @@ export const fetchVerbsFailure = (
 ): FetchVerbsFailure => ({
   type: FETCH_VERBS_FAILURE,
   payload,
+});
+
+//ACTIONS FOR STROKE INDEX
+export const fetchStrokeIndexRequest = (): FetchStrokeIndexRequest => ({
+  type: FETCH_STROKE_INDEX_REQUEST,
+});
+
+export const fetchStrokeIndexSuccess = (
+  strokeIndex: FetchStrokeIndexSuccessPayload
+): FetchStrokeIndexSuccess => ({
+  type: FETCH_STROKE_INDEX_SUCESS,
+  strokeIndex,
 });

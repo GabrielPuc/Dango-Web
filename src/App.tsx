@@ -4,6 +4,7 @@ import {
   fetchConfigRequest,
   fetchWordRequest,
   fetchVerbsRequest,
+  fetchStrokeIndexRequest,
 } from './store/actions';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
@@ -29,6 +30,7 @@ export default function App() {
     dispatch(fetchConfigRequest());
     dispatch(fetchWordRequest());
     dispatch(fetchVerbsRequest());
+    dispatch(fetchStrokeIndexRequest());
   }, []);
   return (
     <div className="bg-slate h-screen">

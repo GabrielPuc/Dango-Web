@@ -42,6 +42,7 @@ function VerbList() {
           <div>
             {filteredVerbs.map((option) => (
               <CollapsableSection
+                key={option.name}
                 title={option.name}
                 expanded={option.content.length == 1}
                 visible={option.content.length != 0}
