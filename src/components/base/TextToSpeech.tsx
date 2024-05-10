@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillPlayCircle } from 'react-icons/ai';
+import { AiFillSound } from 'react-icons/ai';
 
 const TextToSpeech = ({ text }) => {
   const [isPaused, setIsPaused] = useState(false);
@@ -52,10 +52,11 @@ const TextToSpeech = ({ text }) => {
   };
 
   return (
-    <div>
-      <button onClick={handlePlay}>
-        <AiFillPlayCircle />
-      </button>
+    <div
+      onClick={handlePlay}
+      className="bg-pinkBright text-slate h-1/2 w-full flex justify-center place-items-center rounded"
+    >
+      <AiFillSound />
     </div>
   );
 };

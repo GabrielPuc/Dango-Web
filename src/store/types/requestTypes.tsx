@@ -8,6 +8,8 @@ import {
   FETCH_MENU_REQUEST,
   FETCH_MENU_SUCCESS,
   FETCH_MENU_FAILURE,
+  FETCH_STROKE_INDEX_REQUEST,
+  FETCH_STROKE_INDEX_SUCESS,
 } from './actionTypes';
 
 import { Word, Menu, Group } from './modelTypes';
@@ -97,3 +99,21 @@ export type VerbsActions =
   | FetchVerbsRequest
   | FetchVerbsSuccess
   | FetchVerbsFailure;
+
+//RELATED TO STROKES
+export interface FetchStrokeIndexRequest {
+  type: typeof FETCH_STROKE_INDEX_REQUEST;
+}
+
+export interface FetchStrokeIndexSuccessPayload {
+  strokeIndex: Object;
+}
+
+export interface FetchStrokeIndexSuccess {
+  type: typeof FETCH_STROKE_INDEX_SUCESS;
+  strokeIndex: FetchStrokeIndexSuccessPayload;
+}
+
+export type StrokeIndexActions =
+  | FetchStrokeIndexRequest
+  | FetchStrokeIndexSuccess;

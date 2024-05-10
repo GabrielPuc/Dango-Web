@@ -1,4 +1,4 @@
-import QuizOption from './QuizOption';
+import QuizOption from '../blocks/QuizOption';
 import { useState } from 'react';
 
 const Quiz = ({ options, answerIndex }) => {

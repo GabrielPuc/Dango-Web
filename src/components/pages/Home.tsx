@@ -9,8 +9,13 @@ function Home() {
       <p className="flex justify-center mt-10 text-9xl text-pinkBright">
         <BiHomeSmile />
       </p>
-      <p>{textDate}</p>
-      <TextToSpeech text={textDate} />
+
+      <div className="items-center place-content-center content-center place-items-center flex">
+        <p>{textDate}</p>
+        <div className="w-max rounded">
+          <TextToSpeech text={textDate} />
+        </div>
+      </div>
     </div>
   );
 }
