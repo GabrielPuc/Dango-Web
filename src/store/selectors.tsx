@@ -2,6 +2,8 @@ import { createSelector } from 'reselect';
 
 import { AppState } from './rootReducer';
 
+import { Word } from './types/modelTypes';
+
 const getPending = (state: AppState) => state.content.pending;
 
 const getWords = (state: AppState) => state.content.groups;
@@ -50,6 +52,13 @@ export const getSelectorFor = (value: string) => createSelectorFor(value);
 
 //VERBS
 export const getVerbsSelector = createSelector(getVerbs, (verbs) => verbs);
+export const getVerbsMergedSelector = createSelector(getVerbs, (verbGroups) => {
+  let mergedVerbs = [];
+  verbGroups.forEach((verbGroup) => {
+    mergedVerbs = mergedVerbs.concat(verbGroup.content);
+  });
+  return mergedVerbs;
+});
 
 export const getVerbsPendingSelector = createSelector(
   getVerbsPending,

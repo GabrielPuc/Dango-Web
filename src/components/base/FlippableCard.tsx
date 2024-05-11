@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const FlippableCard = ({ front, back }) => {
+const FlippableCard = ({ front, back, isActive = true }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -13,9 +13,12 @@ const FlippableCard = ({ front, back }) => {
   }
 
   return (
-    <div className="flip-card w-[400px] h-[400px]" onClick={handleFlip}>
+    <div
+      className="flip-card w-[400px] h-[400px]"
+      onClick={isActive ? handleFlip : () => {}}
+    >
       <motion.div
-        className="flip-card-inner text-white w-[100%] h-[100%] rounded-md"
+        className="flip-card-inner text-white text-7xl w-[100%] h-[100%] rounded-md"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 360 }}
         transition={{ duration: 0.6 }}

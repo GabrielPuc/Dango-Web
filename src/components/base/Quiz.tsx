@@ -1,14 +1,25 @@
 import QuizOption from '../blocks/QuizOption';
 import { useState } from 'react';
 
-const Quiz = ({ options, answerIndex }) => {
+const Quiz = ({ options, answerIndex, callback }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleOptionClick = (index) => {
     if (selectedIndex == null) {
       setSelectedIndex(index);
     }
+    delayCallback();
   };
+
+  async function delayCallback() {
+    await sleep(1000);
+    callback();
+    setSelectedIndex(null);
+  }
+
+  async function sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   return (
     <div className="flex justify-center">

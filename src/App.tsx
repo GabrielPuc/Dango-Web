@@ -21,6 +21,7 @@ import NotFound from './components/pages/NotFound';
 import PageInConstruction from './components/pages/PageInConstruction';
 import VerbList from './components/pages/VerbList';
 import Playground from './components/pages/Playground';
+import Practice from './components/pages/Practice';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ export default function App() {
               path="practice"
               element={<ContentMenu content={currentRoute} />}
             />
-            <Route path="practice/:content" element={<PageInConstruction />} />
+            <Route path="practice/:content" element={<Practice />} />
             <Route path="playground" element={<Playground />} />
             <Route index element={<Navigate to="home" replace />} />
           </Route>

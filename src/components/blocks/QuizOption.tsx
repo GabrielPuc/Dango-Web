@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Word } from '../../store/types/modelTypes';
 
 const QuizOption = ({
   index,
@@ -29,7 +30,7 @@ const QuizOption = ({
       onClick={handleClick}
       className={`rounded overflow-hidden shadow-lg px-8 py-6 font-bold text-xl mb-2 text-white text-center uppercase cursor-pointer ${selectedIndex != null && 'pointer-events-none'}`}
     >
-      {option}
+      {option.meaning}
     </motion.button>
   );
 };
