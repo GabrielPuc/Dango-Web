@@ -12,7 +12,7 @@ export const CollapsableSection = ({
   return (
     <div className={visible ? 'visible' : 'collapse h-0'}>
       <div onClick={() => setExpanded(!isExpanded)}>
-        <div className="bg-green flex justify-between text-xl text-white px-2 py-2 mt-2">
+        <div className="bg-green flex justify-between text-xl text-white px-2 py-2 mt-2 cursor-pointer">
           {title}
           {isExpanded ? <AiFillCaretDown /> : <AiFillCaretRight />}
         </div>

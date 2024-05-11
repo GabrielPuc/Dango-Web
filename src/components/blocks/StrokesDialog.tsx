@@ -11,7 +11,7 @@ const StrokesDialog = ({ toggleDialog, word }) => {
     <div className="w-screen h-screen bg-black bg-opacity-50 fixed top-0 right-0 flex justify-center place-items-center">
       <div className="bg-slate text-white p-4 rounded-md shadow-md h-2/3 w-3/4 max-w-screen-lg overflow-scroll relative">
         <button
-          className="text-3xl w-3/4 max-w-screen-lg pr-8 justify-end flex fixed"
+          className="text-3xl w-3/4 max-w-screen-lg pr-8 justify-end flex fixed cursor-pointer"
           onClick={() => {
             toggleDialog();
           }}
