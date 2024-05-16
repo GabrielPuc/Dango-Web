@@ -10,6 +10,7 @@ import {
 import {
   getRandomNumberFromRange,
   getRandomItems,
+  getRandomItemswithoutRepeat,
 } from '../../utils/PracticeUtils';
 import { useState } from 'react';
 import FlippableCard from '../base/FlippableCard';
@@ -25,14 +26,22 @@ function Practice() {
     meaning: '',
   });
 
+  const [repeatBuffer, setRepeatBuffer] = useState([]);
+
   useEffect(() => {
     nextSymbol();
   }, []);
 
   function nextSymbol() {
-    setCurrentOptions(getRandomItems(verbGroups, 4));
-    setCurrentAnswerIndex(getRandomNumberFromRange(0, 3));
-    setCurrentAnswer(currentOptions[currentAnswerIndex]);
+    repeatBuffer.push(currentAnswer);
+    if (repeatBuffer.length >= 10) {
+      setRepeatBuffer(repeatBuffer.shift());
+    }
+    const options = getRandomItemswithoutRepeat(verbGroups, 4, repeatBuffer);
+    const answerIndex = getRandomNumberFromRange(0, 3);
+    setCurrentOptions(options);
+    setCurrentAnswerIndex(answerIndex);
+    setCurrentAnswer(options[answerIndex]);
   }
 
   return (
@@ -42,8 +51,8 @@ function Practice() {
       ) : error ? (
         <div>Error</div>
       ) : (
-        <div>
-          <div className="justify-center flex pt-4">
+        <div className="w-full h-screen">
+          <div className="justify-center flex pt-4 w-auto h-1/2">
             <FlippableCard
               front={currentAnswer.pronunciation}
               back={currentAnswer.meaning}

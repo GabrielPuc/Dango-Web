@@ -14,22 +14,22 @@ const FlippableCard = ({ front, back, isActive = true }) => {
 
   return (
     <div
-      className="flip-card w-[400px] h-[400px]"
+      className="flip-card h-full w-full max-w-screen-md justify-center flex"
       onClick={isActive ? handleFlip : () => {}}
     >
       <motion.div
-        className="flip-card-inner text-white text-7xl w-[100%] h-[100%] rounded-md"
+        className="flip-card-inner text-white text-9xl w-4/5 h-full rounded-md"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 360 }}
         transition={{ duration: 0.6 }}
         onAnimationComplete={() => setIsAnimating(false)}
       >
-        <div className="flip-card-front w-[100%] h-[100%] bg-[#292929] flex justify-center items-center rounded-lg">
+        <label className="flip-card-front w-full h-full bg-dark flex justify-center items-center rounded-lg overflow-visible">
           {front}
-        </div>
-        <div className="flip-card-back w-[100%] h-[100%] bg-[#292929] flex justify-center items-center rounded-lg">
+        </label>
+        <label className="flip-card-back w-full h-full bg-dark flex justify-center items-center rounded-lg overflow-visible">
           {back}
-        </div>
+        </label>
       </motion.div>
     </div>
   );
