@@ -102,6 +102,32 @@ const createGroupSelectorFor = (content: string) => {
 export const getGroupSelectorFor = (value: string) =>
   createGroupSelectorFor(value);
 
+export const getWordsMergedSelector = createSelector(getWords, (verbGroups) => {
+  let mergedVerbs = [];
+  verbGroups.forEach((verbGroup) => {
+    mergedVerbs = mergedVerbs.concat(verbGroup.content);
+  });
+  return mergedVerbs;
+});
+
+export const getGroupMergedSelector = (content: string) => {
+  return createSelector(getWords, (wordGroups) => {
+    const groups = wordGroups.filter((obj) => {
+      return obj.name === content.toLocaleLowerCase();
+    });
+    if (groups.length > 0) {
+      let mergedGroups = [];
+      groups[0]['content'].forEach((group) => {
+        group.content.map((value) => (value['group'] = group.name));
+        mergedGroups = mergedGroups.concat(group.content);
+      });
+      return mergedGroups;
+    } else {
+      return [];
+    }
+  });
+};
+
 //STROKES INDEX
 
 const createStrokesIndexSelector = () => {
