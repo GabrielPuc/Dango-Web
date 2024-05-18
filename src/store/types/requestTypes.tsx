@@ -12,7 +12,7 @@ import {
   FETCH_STROKE_INDEX_SUCESS,
 } from './actionTypes';
 
-import { Word, Menu, Group } from './modelTypes';
+import { Word, Menu, Group, WordGroup } from './modelTypes';
 
 //RELATED TO WORD REQUESTS
 
@@ -74,7 +74,7 @@ export type MenuActions =
 //RELATED TO VERBS REQUESTS
 
 export interface FetchVerbsSuccessPayload {
-  groups: Group[];
+  groups: WordGroup[];
 }
 
 export interface FetchVerbsFailurePayload {
@@ -87,7 +87,7 @@ export interface FetchVerbsRequest {
 
 export type FetchVerbsSuccess = {
   type: typeof FETCH_VERBS_SUCCESS;
-  payload: FetchWordSuccessPayload;
+  payload: FetchVerbsSuccessPayload;
 };
 
 export type FetchVerbsFailure = {
