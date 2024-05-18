@@ -6,10 +6,14 @@ export interface Word {
   group: string;
 }
 
-export interface Group {
+export interface WordGroup {
   name: string;
   content: Word[];
-  version: number;
+}
+
+export interface Group {
+  name: string;
+  content: WordGroup[];
 }
 
 export interface MenuItem {
